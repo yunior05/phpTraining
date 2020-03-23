@@ -15,19 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/pizza', function () {
-    $pizzas = array(
-        array(
-            'type' => 'peperonni',
-            'price' => 5
-        ),array(
-            'type' => 'hawuaian',
-            'price' => 25
-        ),array(
-            'type' => 'cheese',
-            'price' => 15
-        )
-        );
-    return view('pizza', ['pizzas' => $pizzas]);
-}); 
+Route::get('/pizza', 'PizzaController@index'); 
+
+Route::get('/pizza/{id}', 'PizzaController@show'); 
 
