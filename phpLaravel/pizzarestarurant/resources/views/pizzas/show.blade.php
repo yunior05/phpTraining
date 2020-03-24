@@ -13,10 +13,12 @@
         </div>
     @endif
 
-    <div class="content">
-        <div class="title m-b-md">
-            Pizza List - {{ $id }}
-        </div>
+    <div class="wrapper pizza-item">
+        <h1>Order for {{ $pizza->name }}</h1>
+        <hr>
+        <p>PRICE: ${{ $pizza->price }}</p>
+        <p>TYPE: {{ $pizza->type }}</p>
+        <p>SIZE: {{ $pizza->size }}</p>
     </div>
 </div>
 @endsection
