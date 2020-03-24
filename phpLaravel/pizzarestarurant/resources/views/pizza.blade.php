@@ -18,14 +18,14 @@
             Pizza List
         </div>
         @foreach($pizzas as $pizza)
-            <p>
-                {{ $loop->index + 1 }}: {{ $pizza['type'] }} - ${{ $pizza['price'] }}
-                @if($pizza['price'] < 10)
-                    It's cheaper
+            <div>
+                {{ $loop->index + 1 }}: {{ $pizza->type }} - ${{ $pizza->price }} - {{ $pizza->name }}
+                @if($pizza->price < 10)
+                    (It's cheaper)
                 @else
-                    It's expensive
+                    (It's expensive)
                 @endif
-            </p>
+            </div>
         @endforeach
     </div>
 </div>

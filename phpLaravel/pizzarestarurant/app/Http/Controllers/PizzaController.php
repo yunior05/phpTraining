@@ -3,22 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Pizza;
 
 class PizzaController extends Controller
 {
     public function index(){
-        $pizzas = array(
-            array(
-                'type' => 'peperonni',
-                'price' => 5
-            ),array(
-                'type' => 'hawuaian',
-                'price' => 25
-            ),array(
-                'type' => 'cheese',
-                'price' => 15
-            )
-            );
+        $pizzas = Pizza::where('type', 'hawuaiian')->get();
         return view('pizza', ['pizzas' => $pizzas]);
     }
 
