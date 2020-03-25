@@ -20,11 +20,20 @@
         <p>TYPE: {{ $pizza->type }}</p>
         <p>SIZE: {{ $pizza->size }}</p>
         <p>TOPPINGS:</p>
-        <ul>
-            @foreach($pizza->toppings as $topping)
-                <li>{{ $topping }}</li>
-            @endforeach
-        </ul>
+        @if($pizza->toppings)
+            <ul>
+                @foreach($pizza->toppings as $topping)
+                    <li>{{ $topping }}</li>
+                @endforeach
+            </ul>
+        @endif
+    </div>
+    <div>
+        <form action="\pizzas\{{ $pizza->id }}" method="post">
+            {{ csrf_field() }} <!-- @csrf for laravel 6 -->
+            {{ method_field('DELETE') }} <!-- @method = 'DELETE' for laravel 6 -->
+            <button type="submit">Complete Order</button>
+        </form>
     </div>
 </div>
 @endsection

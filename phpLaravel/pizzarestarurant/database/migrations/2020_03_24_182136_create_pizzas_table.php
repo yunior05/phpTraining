@@ -17,8 +17,8 @@ class CreatePizzasTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('type');
-            $table->integer('price');
-            $table->json('toppings');
+            $table->integer('price')->nullable();
+            $table->json('toppings')->nullable();
             $table->timestamps();
         });
     }

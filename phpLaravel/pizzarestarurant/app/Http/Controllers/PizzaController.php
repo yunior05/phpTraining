@@ -33,7 +33,14 @@ class PizzaController extends Controller
         $pizza->size = request('size');
         $pizza->toppings = request('toppings');
         $pizza->save();
-        
+
         return redirect('/')->with('mssg', 'Your order has been processed');
+    }
+
+    public function destroy($id){
+        $pizza = Pizza::findOrFail($id);
+        $pizza->delete();
+
+        return redirect('/');
     }
 }
