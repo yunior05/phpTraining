@@ -15,9 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/pizza', 'PizzaController@index'); 
+Route::get('/pizzas', 'PizzaController@index'); 
 
-Route::get('/pizza/create', 'PizzaController@create');
+Route::post('/pizzas', 'PizzaController@store'); 
 
-Route::get('/pizza/{id}', 'PizzaController@show'); 
+Route::get('/pizzas/create', 'PizzaController@create');
+
+Route::get('/pizzas/{id}', 'PizzaController@show'); 
 

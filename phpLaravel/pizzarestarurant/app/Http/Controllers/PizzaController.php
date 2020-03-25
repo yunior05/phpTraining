@@ -8,7 +8,11 @@ use App\Pizza;
 class PizzaController extends Controller
 {
     public function index(){
-        $pizzas = Pizza::where('type', 'hawuaiian')->get();
+        //Example with filter
+        //$pizzas = Pizza::where('type', 'hawuaiian')->get();
+
+        $pizzas = Pizza::all();
+
         return view('pizzas.index', ['pizzas' => $pizzas]);
     }
 
@@ -19,5 +23,17 @@ class PizzaController extends Controller
 
     public function create(){
         return view('pizzas.create');
+    }
+
+    public function store(){
+        $pizza = new Pizza(); 
+        $pizza->name = request('name');
+        $pizza->type = request('type');
+        $pizza->price = 15;
+        $pizza->size = request('size');
+        $pizza->toppings = request('toppings');
+        $pizza->save();
+        
+        return redirect('/')->with('mssg', 'Your order has been processed');
     }
 }

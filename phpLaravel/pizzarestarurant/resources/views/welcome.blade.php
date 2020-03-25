@@ -14,18 +14,18 @@
     @endif
 
     <div class="content">
+        @if (session('mssg'))
+            {{ session('mssg') }}!
+        @endif 
+        <br>
         <img class="image-circle" src="img/pizza-logo.jpeg" alt="Pizza Restaurant Logo">
         <div class="title m-b-md">
             Pizza Restaurant
         </div>
 
-        <!-- <div class="links">
-            <a href="https://laravel.com/docs">Documentation</a>
-            <a href="https://laracasts.com">Laracasts</a>
-            <a href="https://laravel-news.com">News</a>
-            <a href="https://forge.laravel.com">Forge</a>
-            <a href="https://github.com/laravel/laravel">GitHub</a>
-        </div> -->
+        <div class="links">
+            <a href="pizzas/create">Order Pizza!</a>
+        </div>
     </div>
 </div>
 @endsection

@@ -19,6 +19,12 @@
         <p>PRICE: ${{ $pizza->price }}</p>
         <p>TYPE: {{ $pizza->type }}</p>
         <p>SIZE: {{ $pizza->size }}</p>
+        <p>TOPPINGS:</p>
+        <ul>
+            @foreach($pizza->toppings as $topping)
+                <li>{{ $topping }}</li>
+            @endforeach
+        </ul>
     </div>
 </div>
 @endsection
