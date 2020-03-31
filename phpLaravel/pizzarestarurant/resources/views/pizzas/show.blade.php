@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('layouts.app')
 
 @section('content')
 <div class="flex-center position-ref full-height">
@@ -27,13 +27,15 @@
                 @endforeach
             </ul>
         @endif
-    </div>
-    <div>
+        <div>
         <form action="\pizzas\{{ $pizza->id }}" method="post">
-            {{ csrf_field() }} <!-- @csrf for laravel 6 -->
-            {{ method_field('DELETE') }} <!-- @method = 'DELETE' for laravel 6 -->
-            <button type="submit">Complete Order</button>
+        @csrf
+        @method = 'DELETE'
+           <!-- {{ csrf_field() }} @csrf for laravel 6 -->
+            <!-- {{ method_field('DELETE') }}  @method = 'DELETE' for laravel 6 -->
+            <button class="pizza_button" type="submit">Complete Order</button>
         </form>
+    </div>
     </div>
 </div>
 @endsection

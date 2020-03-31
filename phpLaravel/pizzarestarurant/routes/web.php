@@ -27,3 +27,7 @@ Route::delete('/pizzas/{id}', 'PizzaController@destroy');
 
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
