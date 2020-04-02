@@ -2,17 +2,6 @@
 
 @section('content')
 <div class="flex-center position-ref full-height">
-    @if (Route::has('login'))
-        <div class="top-right links">
-            @if (Auth::check())
-                <a href="{{ url('/home') }}">Home</a>
-            @else
-                <a href="{{ url('/login') }}">Login</a>
-                <a href="{{ url('/register') }}">Register</a>
-            @endif
-        </div>
-    @endif
-
     <div class="wrapper pizza-item">
         <h1>Order for {{ $pizza->name }}</h1>
         <hr>
@@ -28,13 +17,16 @@
             </ul>
         @endif
         <div>
-        <form action="\pizzas\{{ $pizza->id }}" method="post">
+        <form action="{{ route('pizzas.destroy', $pizza->id) }}" method="post">
         @csrf
-        @method = 'DELETE'
-           <!-- {{ csrf_field() }} @csrf for laravel 6 -->
-            <!-- {{ method_field('DELETE') }}  @method = 'DELETE' for laravel 6 -->
+        @method('DELETE')
             <button class="pizza_button" type="submit">Complete Order</button>
         </form>
+    </div>
+    <div>
+        <a href="{{ route('pizzas.index') }}">
+           << Back to all pizza orders
+        </a>
     </div>
     </div>
 </div>
